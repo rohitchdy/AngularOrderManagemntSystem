@@ -1,0 +1,29 @@
+<div class="content-wrapper" style="min-height: 525px;">
+    <section class="container">
+        <div class="container-fluid">
+            <p style="color: brown;"><b>OrderDetails</b></p>
+            <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ProductID</th>
+                    <th scope="col">UnitPrice</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Discount</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let orderDetail of orderDetailCollections">
+                    
+                        <td>{{orderDetail.orderID}}</td>
+                        <td>{{orderDetail.productID}}</td>
+                        <td>{{orderDetail.unitPrice}}</td>
+                        <td>{{orderDetail.quantity}}</td>
+                        <td>{{orderDetail.discount}}</td>
+                      </tr>
+                </tbody>
+              </table>
+        </div>
+    </section>
+</div>

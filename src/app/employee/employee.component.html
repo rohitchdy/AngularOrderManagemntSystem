@@ -1,0 +1,44 @@
+<div class="content-wrapper" style="min-height: 525px;">
+    <section class="container">
+        <div class="container-fluid">
+          <p style="color: brown;"><b>Employees</b></p>
+            <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">LastName</th>
+                    <th scope="col">FirstName</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">BirthDate</th>
+                    <th scope="col">HireDate</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Region</th>
+                    <th scope="col">PostalCode</th>
+                    <th scope="col">Country</th>
+                    <th scope="col">HomePhone</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let employee of employeeCollections">
+                    
+                    <td>{{employee.employeeID}}</td>
+                    <td>{{employee.lastName}}</td>
+                    <td>{{employee.firstName}}</td>
+                    <td>{{employee.title}}</td>
+                    <td>{{employee.birthDate}}</td>
+                    <td>{{employee.hireDate}}</td>
+                    <td>{{employee.address}}</td>
+                    <td>{{employee.city}}</td>
+                    <td>{{employee.region}}</td>
+                    <td>{{employee.postalCode}}</td>
+                    <td>{{employee.country}}</td>
+                    <td>{{employee.homePhone}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </section>
+</div>
+

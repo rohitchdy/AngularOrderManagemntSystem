@@ -1,0 +1,20 @@
+<div class="content-wrapper" style="min-height: 525px;">
+  <section class="container">
+      <div class="container-fluid">
+          <div class="card-body">
+              <div class="row">
+                <div class="col-sm-4" *ngFor="let product of productCollections" style="margin-bottom: 5px;">
+                  <div class="position-relative p-3 bg-gray" style="height: 180px">
+                     <p>{{product.productName}}</p>
+                     <p>Unit Price:&nbsp;&nbsp;{{product.unitPrice}}</p>
+                     <p>QuantityPerUnit:&nbsp;&nbsp;{{product.quantityPerUnit}}</p>
+                     <p>UnitInStock:&nbsp;&nbsp;{{product.unitsInStock}}</p>
+                     <p>ProductInOrder:&nbsp;&nbsp;{{product.unitsOnOrder}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+  </section>    
+
+</div>

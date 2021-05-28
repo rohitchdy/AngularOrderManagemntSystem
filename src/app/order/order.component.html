@@ -1,0 +1,37 @@
+<div class="content-wrapper" style="min-height: 525px;">
+    <section class="container">
+        <div class="container-fluid">
+          <p style="color: brown;"><b>Orders</b></p>
+            <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">OrderDate</th>
+                    <th scope="col">RequiredDate</th>
+                    <th scope="col">ShipName</th>
+                    <th scope="col">ShipAddress</th>
+                    <th scope="col">ShipCity</th>
+                    <th scope="col">ShipRegion</th>
+                    <th scope="col">ShipPostalCode</th>
+                    <th scope="col">ShipCountry</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let order of orderCollections">
+                    
+                    <td>{{order.orderID}}</td>
+                    <td>{{order.orderDate}}</td>
+                    <td>{{order.requiredDate}}</td>
+                    <td>{{order.shipName}}</td>
+                    <td>{{order.shipAddress}}</td>
+                    <td>{{order.shipCity}}</td>
+                    <td>{{order.shipRegion}}</td>
+                    <td>{{order.shipPostalCode}}</td>
+                    <td>{{order.shipCountry}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </section>
+</div>

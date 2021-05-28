@@ -1,0 +1,25 @@
+<div class="content-wrapper" style="min-height: 525px;">
+    <section class="container">
+        <div class="container-fluid">
+            <p style="color: brown;"><b>ShipperDetails</b></p>
+            <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">CompanyName</th>
+                    <th scope="col">Phone</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let shipper of shipperCollections">
+                    
+                    <td>{{shipper.shipperID}}</td>
+                    <td>{{shipper.companyName}}</td>
+                    <td>{{shipper.phone}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </section>
+</div>

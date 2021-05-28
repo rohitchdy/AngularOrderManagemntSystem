@@ -1,0 +1,213 @@
+<div class="content-wrapper" style="min-height: 1365.63px;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-10 mx-auto">
+                    <form (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"  novalidate>
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                                <label for="category">Select Category</label>
+                                
+                                <select   class="form-control" (change)="selectChangeHandler($event)" name="categoryName"  required  >
+                                    <option selected disabled>Choose a category</option>
+                                    <option *ngFor="let category of categoryCollections" [value]="category.categoryID">{{category.categoryName}}</option>
+                                    
+                                  </select>
+                                  
+                                
+                                
+
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="product">Select Product</label>
+                                <select  class="form-control" (change)="selectChangeHandler1($event)" name="productName" required>
+                                    <option selected disabled>Choose a product</option>
+                                    <option *ngFor="let product of productCollections" [value]="product.productID">{{product.productName}}&nbsp;&nbsp; (Avail: &nbsp;{{product.unitsInStock}})</option>
+                                    
+                                  </select>
+                                  
+
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="price">Price</label>
+                                <input type="text" class="form-control" id="unitPrice" name="unitPrice"  [(ngModel)]="unitPrice" readonly>
+                            </div>
+                            
+                            <div class="col-sm-2">
+                                <label for="quantity">Quantity</label>
+                                <input type="number" class="form-control" id="quantity" name="quantity"  
+                                [(ngModel)]="quantity"  required>
+                                
+                            </div>
+                            
+                            
+                        </div>
+                            
+                        
+                        <div class="form-group row">
+
+                            <div class="col-sm-3">
+                                <label for="category">Select Employee</label>
+                                
+                                <select  class="form-control" (change)="selectChangeHandler2($event)"  name="employe" required>
+                                    <option selected disabled>Select Employee</option>
+                                    <option *ngFor="let employee of employees" [value]="employee.employeeID">{{employee.firstName}}&nbsp;{{employee.lastName}}</option>
+                                    
+                                  </select>
+
+                                
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="shipVia">Select Shipper</label>
+                                
+                                <select class="form-control" (change)="selectChangeHandler3($event)" name="companyName" required>
+                                    <option selected disabled>Select Shipper</option>
+                                    <option *ngFor="let shipper of shipperCollections" [value]="shipper.shipperID">{{shipper.companyName}}</option>
+                                    
+                                  </select>
+                                  
+
+                                
+                            </div>
+
+                            <div class="col-sm-4">
+                                <label for="requiredDate">RequiredDate</label>
+                                <input type="date" class="form-control" [(ngModel)]="requiredDate" name="requiredDate" required >
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-th"></span>
+                                </div>
+                                
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="customerId">CustomerID</label>
+                                <input  type="text" class="form-control" id="customerId" name="customerID" 
+                                [(ngModel)]="customerObj.customerID" placeholder="CustomerID" 
+                                #customerID="ngModel" [ngClass]="{ 'is-invalid': f.submitted && customerID.invalid }" required />
+                                <div *ngIf="f.submitted && customerID.invalid" class="invalid-feedback">
+                                    <div *ngIf="customerID.errors.required">Customer Name is required</div>
+                                </div>
+
+                            </div>   
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                                <label for="companyName">CompanyName</label>
+                                <input  type="text" class="form-control" id="companyName" name="companyName" 
+                                [(ngModel)]="customerObj.companyName" placeholder="CompanyName"
+                                #companyName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && companyName.invalid }" required />
+                                <div *ngIf="f.submitted && companyName.invalid" class="invalid-feedback">
+                                    <div *ngIf="companyName.errors.required">Company Name is required</div>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="contactName">ContactName</label>
+                                <input   type="text" class="form-control" id="contactName" name="contactName" 
+                                [(ngModel)]="customerObj.contactName" placeholder="ContactName"
+                                #contactName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && contactName.invalid }" required >
+                                <div *ngIf="f.submitted && contactName.invalid" class="invalid-feedback">
+                                    <div *ngIf="contactName.errors.required">Contact Name is required</div>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="contactTitle">ContactTitle</label>
+                                <input  type="text" class="form-control" id="contactTitle" name="contactTitle" 
+                                [(ngModel)]="customerObj.contactTitle" placeholder="ContactTitle"
+                                #contactTitle="ngModel" [ngClass]="{ 'is-invalid': f.submitted && contactTitle.invalid }" required>
+                                <div *ngIf="f.submitted && contactTitle.invalid" class="invalid-feedback">
+                                    <div *ngIf="contactTitle.errors.required">Contact Title is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <label for="address">Address</label>
+                                <input  type="text" class="form-control" id="address" name="address" 
+                                [(ngModel)]="customerObj.address" placeholder="Street Address"
+                                #address="ngModel" [ngClass]="{ 'is-invalid': f.submitted && address.invalid }" required>
+                                <div *ngIf="f.submitted && address.invalid" class="invalid-feedback">
+                                    <div *ngIf="address.errors.required">Address is required</div>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="city">City</label>
+                                <input  type="text" class="form-control" id="city" name="city" 
+                                [(ngModel)]="customerObj.city" placeholder="City"
+                                #city="ngModel" [ngClass]="{ 'is-invalid': f.submitted && city.invalid }" required>
+                                <div *ngIf="f.submitted && city.invalid" class="invalid-feedback">
+                                    <div *ngIf="city.errors.required">City is required</div>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="region">Select Region</label>
+                                <input  type="text" class="form-control" id="country" name="region" 
+                                [(ngModel)]="customerObj.region" placeholder="Region"
+                                #region="ngModel" [ngClass]="{ 'is-invalid': f.submitted && region.invalid }" required>
+                                <div *ngIf="f.submitted && region.invalid" class="invalid-feedback">
+                                    <div *ngIf="region.errors.required">Region is required</div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <label for="country">Country</label>
+                                <input  type="text" class="form-control" id="country" name="country" 
+                                [(ngModel)]="customerObj.country" placeholder="Country"
+                                #country="ngModel" [ngClass]="{ 'is-invalid': f.submitted && country.invalid }" required>
+                                <div *ngIf="f.submitted && country.invalid" class="invalid-feedback">
+                                    <div *ngIf="country.errors.required">Counrty is required</div>
+                                </div>
+
+                            </div>
+                            
+                            <div class="col-sm-3">
+                                <label for="postalCode">Postal Code</label>
+                                <input  type="text" class="form-control" id="postalCode" name="postalCode" 
+                                [(ngModel)]="customerObj.postalCode" placeholder="Postal Code"
+                                #postalCode="ngModel" [ngClass]="{ 'is-invalid': f.submitted && postalCode.invalid }" required>
+                                <div *ngIf="f.submitted && postalCode.invalid" class="invalid-feedback">
+                                    <div *ngIf="postalCode.errors.required">PostalCode is required</div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <label for="phone">Contact Number</label>
+                                <input  type="text" class="form-control" id="phone" name="phone" 
+                                [(ngModel)]="customerObj.phone" placeholder="Contact Number"
+                                #phone="ngModel" [ngClass]="{ 'is-invalid': f.submitted && phone.invalid }" required>
+                                <div *ngIf="f.submitted && phone.invalid" class="invalid-feedback">
+                                    <div *ngIf="phone.errors.required">Phone no. is required</div>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="fax">Fax</label>
+                                <input  type="text" class="form-control" id="fax" name="fax" 
+                                [(ngModel)]="customerObj.fax" placeholder="Fax"
+                                #fax="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fax.invalid }" required>
+                                <div *ngIf="f.submitted && fax.invalid" class="invalid-feedback">
+                                    <div *ngIf="fax.errors.required">Fax no. is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary">Place a Order</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        
+
+        
+      </div>
+    </section>
+
+    
+  </div>

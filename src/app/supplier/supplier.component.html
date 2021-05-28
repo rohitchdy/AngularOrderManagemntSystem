@@ -1,0 +1,37 @@
+<div class="content-wrapper" style="min-height: 525px;">
+    <section class="container">
+        <div class="container-fluid">
+            <p style="color: brown;"><b>SupplierDetails</b></p>
+            <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">CompanyName</th>
+                    <th scope="col">ContactTitle</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">City</th>
+                    <th scope="col">PostalCode</th>
+                    <th scope="col">County</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Fax</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let supplier of supplierCollections">
+                    
+                        <td>{{supplier.supplierID}}</td>
+                        <td>{{supplier.companyName}}</td>
+                        <td>{{supplier.contactTitle}}</td>
+                        <td>{{supplier.address}}</td>
+                        <td>{{supplier.city}}</td>
+                        <td>{{supplier.postalCode}}</td>
+                        <td>{{supplier.country}}</td>
+                        <td>{{supplier.phone}}</td>
+                        <td>{{supplier.fax}}</td>
+                      </tr>
+                </tbody>
+              </table>
+        </div>
+    </section>
+</div>
